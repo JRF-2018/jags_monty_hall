@@ -1,0 +1,15 @@
+## Version: 0.0.1
+## Time-stamp: <2020-04-18T10:11:02Z>
+
+model {
+    d ~ dcat(pi)
+    pi[1] = 1.0/3
+    pi[2] = 1.0/3
+    pi[3] = 1.0/3
+    md ~ dcat(pi2)
+    pi2[1] = 1.0/2
+    pi2[2] = 1.0/2
+    m <- ifelse(d == 1, md + 1, ifelse(d == 2, 2, 3))
+    choose1 <- equals(d, 1)
+    choosem <- equals(d, m)
+}
